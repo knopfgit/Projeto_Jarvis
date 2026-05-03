@@ -16,6 +16,16 @@ def responder_comando(comando):
         print("Agora são x horas, senhor.")
     elif "sair" in comando:
         print ("Desligando sistema, até breve, senhor!")
+    elif "youtube" in comando:
+        print("Abrindo o youtube senhor.")
+        webbrowser.open("https://www.youtube.com")
+    elif "google" in comando:
+        print("Abrindo o google em seu navegador, senhor.")
+        webbrowser.open("https://www.google.com")
+    elif "pesquisar" in comando:
+        termo = comando.replace("pesquisar", "").strip() # linha responsável por separar o termo que o usúario deseja pesquisar usando .strip e concatenação de "strings"
+        print("Pesquisando:" + termo + " no seu navegador, senhor")
+        webbrowser.open("https://www.google.com/search?q="+ termo)
     else:
         print("Desculpe, senhor, não entendi seu comando.")
 def iniciar():
