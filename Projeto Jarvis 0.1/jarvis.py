@@ -7,14 +7,22 @@ engine.setProperty("rate", 160)
 
 # =====================================================================================================  
 # # Sessão inicial onde implementei as principais funções do nosso JARVIS
+def falar(texto):
+    try: #Implementação da função try/except afim de corrigir possíveis erros 
+        engine.say(texto)
+        engine.runAndWait()
+    except Exception as erro:
+        print(f"Erro na voz: {erro}")
+        print(texto)
 def apresentacao(): 
     falar("Boas-Vindas Senhor, eu sou o JARVIS, como posso ajuda-lo?")
 def ouvir():
-    comando = input("Digite o seu comando:")
-    return comando.lower()
-def falar(texto):
-    engine.say(texto)
-    engine.runAndWait()
+    try:    #Implementação da função try/except afim de corrigir possíveis erros 
+        comando = input("Digite o seu comando:")
+        return comando.lower()
+    except Exception as erro:
+        print(f"erro ao escutar {erro}")
+        return ""  # Adicionada a função return afim de evitar valores vazios
 def responder_comando(comando):
     if "olá jarvis" in comando:
         falar("Olá senhor.")
